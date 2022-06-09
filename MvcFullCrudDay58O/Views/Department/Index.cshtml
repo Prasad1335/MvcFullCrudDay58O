@@ -1,0 +1,46 @@
+﻿@model List<MvcFullCrudDay58O.Models.Department>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+
+
+<div class="row p-5">
+    <div class="col-md-12   mt-2">
+        <a class="btn btn-outline-danger" asp-controller="Department" asp-action="Create">Create New Department</a>
+    </div>
+    <div class="col-md-12 bg-dark p-2 mt-3">
+        <h4 class="text-info">View All Department</h4>
+    </div>
+    <div class="col-md-12 mt-3 p-0">
+        <table class="table table-bordered table-hover table-striped">
+            <thead class=" bg-warning text-center">
+                <tr>
+                    <td>Id</td>
+                    <td>Name</td>
+                    <td>Description</td>
+                    <td colspan="3">Operation</td>
+                </tr>
+            </thead>
+            <tbody class="text-center">
+                @foreach (var dept in Model)
+                {
+
+                    <tr>
+                        <td>@dept.Id</td>
+                        <td>@dept.Name</td>
+                        <td>@dept.Description</td>
+                        <td><a class="btn btn-outline-info" asp-controller="Department" asp-action="Details" asp-route-id="@dept.Id">Details</a> </td>
+                        <td><a class="btn btn-outline-primary" asp-controller="Department" asp-action="Edit" asp-route-id="@dept.Id">Edit</a> </td>
+                        <td><a class="btn btn-outline-danger" asp-controller="Department" asp-action="Delete" asp-route-id="@dept.Id">Delete</a> </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
